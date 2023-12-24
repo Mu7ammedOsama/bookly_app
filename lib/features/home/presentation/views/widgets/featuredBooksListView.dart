@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // features
-import 'package:bookly_app/features/home/presentation/views/widgets/customListViewItem.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/featuredBooksListViewItem.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
@@ -15,7 +15,7 @@ class FeaturedBooksListView extends StatelessWidget {
         itemCount: 3,
         itemBuilder: (context, index) => const Padding(
           padding: EdgeInsets.only(right: 8),
-          child: CustomListViewItem(),
+          child: FeaturedBooksListViewItem(),
         ),
       ),
     );
