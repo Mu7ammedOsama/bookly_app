@@ -1,3 +1,4 @@
+import 'package:bookly_app/constants.dart';
 import 'package:flutter/material.dart';
 
 // core
@@ -23,7 +24,7 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(height: 24),
           Text(
             'Best Seller',
-            style: Styles.title,
+            style: Styles.textStyle18,
           ),
           SizedBox(height: 16),
           BestSellerListViewItem(),
