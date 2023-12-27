@@ -1,4 +1,5 @@
 import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/features/home/presentation/views/home_view.dart';
 import 'package:bookly_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,10 @@ abstract class AppRouters {
       GoRoute(
         path: kHomeRoute,
         builder: (BuildContext context, GoRouterState state) => const HomeView(),
+      ),
+      GoRoute(
+        path: kBookDetailsViewRoute,
+        builder: (BuildContext context, GoRouterState state) => const BookDetailsView(),
       ),
     ],
   );
