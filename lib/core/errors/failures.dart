@@ -11,26 +11,24 @@ class ServerFailures extends Failures {
 
   factory ServerFailures.fromDioError(DioError dioError) {
     switch (dioError.type) {
-      case DioExceptionType.connectionTimeout:
+      case DioErrorType.connectionTimeout:
         return ServerFailures('Connection Time Out with API Service');
-      case DioExceptionType.sendTimeout:
+      case DioErrorType.sendTimeout:
         return ServerFailures('Send Time Out with API Service');
-      case DioExceptionType.receiveTimeout:
+      case DioErrorType.receiveTimeout:
         return ServerFailures('Receive Time Out with API Service');
-      case DioExceptionType.badCertificate:
-        return ServerFailures('Connection Time Out with API Service');
-      case DioExceptionType.badResponse:
-        return ServerFailures.fromResponse(dioError.response!.statusCode, dioError.response!.data);
-      case DioExceptionType.cancel:
+      case DioErrorType.badResponse:
+        return ServerFailures.fromResponse(
+          dioError.response!.statusCode,
+          dioError.response!.data,
+        );
+      case DioErrorType.cancel:
         return ServerFailures('Request with API Service was Canceled');
-      case DioExceptionType.connectionError:
-        return ServerFailures('Error Connection with API Service');
-      case DioExceptionType.unknown:
+      case DioErrorType.unknown:
         if (dioError.message!.contains('SocketException')) {
           return ServerFailures('No Internet Connection');
-        } else {
-          return ServerFailures('Unexpected Error, Please try later!');
         }
+        return ServerFailures('Unexpected Error, Please try later!');
       default:
         return ServerFailures('Opps there was an error, Please try again!');
     }

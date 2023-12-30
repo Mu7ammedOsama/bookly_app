@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/utilities/styles.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_details_action_button.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image_list_view_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/featured_book_list_view_item.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
@@ -15,7 +15,9 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.3),
-          child: const CustomBookImageListViewItem(),
+          child: const FeaturedBookListViewItem(
+            imageURL: 'https://img.freepik.com/free-photo/abstract-glowing-flame-drops-electric-illumination-generative-ai_188544-8092.jpg',
+          ),
         ),
         const SizedBox(height: 40),
         Text(
