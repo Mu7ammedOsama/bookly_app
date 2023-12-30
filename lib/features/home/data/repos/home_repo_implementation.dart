@@ -22,7 +22,7 @@ class HomeRepoImplementation implements HomeRepo {
       }
       return right(books);
     } catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return left(ServerFailures.fromDioError(e));
       }
       return left(ServerFailures(e.toString()));
@@ -32,7 +32,7 @@ class HomeRepoImplementation implements HomeRepo {
   @override
   Future<Either<Failures, List<BookModel>>> fetchNewestBooks() async {
     try {
-      var data = await apiService.get(endPoint: 'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:Programming');
+      var data = await apiService.get(endPoint: 'volumes?Filtering=free-ebooks&Sorting=newest&q=Computer Science');
 
       List<BookModel> books = [];
 
@@ -41,7 +41,7 @@ class HomeRepoImplementation implements HomeRepo {
       }
       return right(books);
     } catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return left(ServerFailures.fromDioError(e));
       }
       return left(ServerFailures(e.toString()));

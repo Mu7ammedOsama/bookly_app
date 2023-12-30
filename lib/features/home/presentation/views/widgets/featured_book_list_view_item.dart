@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly_app/core/utilities/assets_data.dart';
 
@@ -8,15 +9,14 @@ class FeaturedBookListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 3 / 4,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: NetworkImage(imageURL),
-          ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: AspectRatio(
+        aspectRatio: 3 / 4,
+        child: CachedNetworkImage(
+          fit: BoxFit.fill,
+          imageUrl: 'imageURL',
+          errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
       ),
     );
