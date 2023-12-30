@@ -1,9 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:bookly_app/core/utilities/assets_data.dart';
 
-class FeaturedBookListViewItem extends StatelessWidget {
-  const FeaturedBookListViewItem({super.key, required this.imageURL});
+class CustomBookImage extends StatelessWidget {
+  const CustomBookImage({super.key, required this.imageURL});
 
   final String imageURL;
 
@@ -15,7 +14,7 @@ class FeaturedBookListViewItem extends StatelessWidget {
         aspectRatio: 3 / 4,
         child: CachedNetworkImage(
           fit: BoxFit.fill,
-          imageUrl: 'imageURL',
+          imageUrl: imageURL,
           errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
       ),
