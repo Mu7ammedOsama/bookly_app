@@ -1,14 +1,9 @@
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utilities/styles.dart';
-import 'package:bookly_app/core/widgets/custom_error_message.dart';
-import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
-import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
-import 'package:bookly_app/core/utilities/assets_data.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class NewestBookListViewItem extends StatelessWidget {
@@ -24,7 +19,7 @@ class NewestBookListViewItem extends StatelessWidget {
         height: 128,
         child: Row(
           children: [
-            CustomBookImage(imageURL: bookModel.volumeInfo.imageLinks.thumbnail),
+            CustomBookImage(imageURL: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
             const SizedBox(width: 24),
             Expanded(
               child: Column(
@@ -53,7 +48,7 @@ class NewestBookListViewItem extends StatelessWidget {
                         style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),
                       ),
                       BookRating(
-                        averageRating: bookModel.volumeInfo.averageRating ?? 0,
+                        averageRating: bookModel.volumeInfo.averageRating?.round() ?? 0,
                         ratingsCount: bookModel.volumeInfo.ratingsCount ?? 0,
                       ),
                     ],

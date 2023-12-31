@@ -1,3 +1,4 @@
+import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utilities/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ class CustomSearchAppBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 24),
       child: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: kPrimaryColor,
         title: const Text(
           'Search',
           style: Styles.textStyle20,

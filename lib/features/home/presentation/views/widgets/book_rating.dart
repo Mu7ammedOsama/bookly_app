@@ -27,14 +27,14 @@ class BookRating extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Text(
-            '$averageRating',
+            averageRating.toString(),
             style: Styles.textStyle16.copyWith(color: Colors.white),
           ),
         ),
         Opacity(
           opacity: 0.5,
           child: Text(
-            '$ratingsCount',
+            '($ratingsCount)',
             style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),
           ),
         ),
